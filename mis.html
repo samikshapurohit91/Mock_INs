@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview Simulator</title>
+
+    <link rel="stylesheet" href="mis.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div>
+            <h1>Mock Interview Simulator</h1>
+            <p>Practice. Improve. Get Hired.</p>
+        </div>
+
+        <button id="themeToggle">
+            🌙 Dark Mode
+        </button>
+
+    </header>
+
+    <!-- Dashboard -->
+
+    <section class="dashboard">
+
+        <div class="card">
+            <h3>Total Interviews</h3>
+            <h2 id="totalInterviews">0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Average Score</h3>
+            <h2 id="avgScore">0%</h2>
+        </div>
+
+        <div class="card">
+            <h3>Best Score</h3>
+            <h2 id="bestScore">0%</h2>
+        </div>
+
+        <div class="card">
+            <h3>Current Streak</h3>
+            <h2 id="streak">0 🔥</h2>
+        </div>
+
+    </section>
+
+    <!-- Interview Setup -->
+
+    <section class="setup">
+
+        <h2>Start New Interview</h2>
+
+        <div class="setup-form">
+
+            <select id="category">
+
+                <option value="java">Java</option>
+                <option value="spring">Spring Boot</option>
+                <option value="sql">SQL</option>
+                <option value="hr">HR</option>
+
+            </select>
+
+            <select id="difficulty">
+
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+
+            </select>
+
+            <select id="questionCount">
+
+                <option value="5">5 Questions</option>
+                <option value="10">10 Questions</option>
+                <option value="15">15 Questions</option>
+
+            </select>
+
+            <button id="startInterview">
+                Start Interview
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Interview Section -->
+
+    <section class="interview-section" id="interviewSection">
+
+        <div class="interview-top">
+
+            <div id="questionCounter">
+                Question 1 / 10
+            </div>
+
+            <div id="timer">
+                05:00
+            </div>
+
+        </div>
+
+        <div class="question-card">
+
+            <h3 id="questionText">
+
+                Your interview question appears here...
+
+            </h3>
+
+        </div>
+
+        <textarea
+            id="answerBox"
+            placeholder="Write your answer here..."
+        ></textarea>
+
+        <!-- Controls -->
+
+        <div class="controls">
+
+            <button id="prevBtn">
+                Previous
+            </button>
+
+            <button id="saveBtn">
+                Save Answer
+            </button>
+
+            <button id="nextBtn">
+                Next
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Voice Recording -->
+
+    <section class="voice-section">
+
+        <h2>Voice Recording</h2>
+
+        <button id="startRecord">
+            🎙 Start Recording
+        </button>
+
+        <button id="stopRecord">
+            ⏹ Stop Recording
+        </button>
+
+        <audio id="audioPlayback" controls></audio>
+
+    </section>
+
+    <!-- Interview Result -->
+
+    <section class="result-section">
+
+        <h2>Interview Result</h2>
+
+        <div class="result-card">
+
+            <h3>
+                Questions Answered:
+                <span id="answeredCount">0</span>
+            </h3>
+
+            <h3>
+                Score:
+                <span id="scoreValue">0%</span>
+            </h3>
+
+            <button id="finishInterview">
+                Finish Interview
+            </button>
+
+            <button id="downloadCertificate">
+                Download Certificate
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Bookmarked Questions -->
+
+    <section class="bookmark-section">
+
+        <h2>⭐ Bookmarked Questions</h2>
+
+        <ul id="bookmarkList"></ul>
+
+    </section>
+
+    <!-- Interview History -->
+
+    <section class="history-section">
+
+        <h2>Interview History</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Score</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTable"></tbody>
+
+        </table>
+
+    </section>
+
+    <!-- Analytics -->
+
+    <section class="analytics">
+
+        <div class="chart-card">
+
+            <h2>Category Performance</h2>
+
+            <canvas id="performanceChart"></canvas>
+
+        </div>
+
+        <div class="chart-card">
+
+            <h2>Interview History</h2>
+
+            <canvas id="historyChart"></canvas>
+
+        </div>
+
+    </section>
+
+    <!-- Daily Challenge -->
+
+    <section class="daily-challenge">
+
+        <h2>🔥 Daily Challenge</h2>
+
+        <p id="dailyQuestion">
+            Loading...
+        </p>
+
+        <button id="randomQuestionBtn">
+            Random Question
+        </button>
+
+    </section>
+
+    <!-- Toast Notification -->
+
+    <div id="toast"></div>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            Developed by Samiksha Purohit ❤️
+        </p>
+
+    </footer>
+
+    <script src="questions.js"></script>
+    <script src="mis.js"></script>
+
+</body>
+
+</html>
